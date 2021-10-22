@@ -17,7 +17,7 @@ taskRouter.post("/tasks", auth, async (req, res) => {
 taskRouter.get("/tasks", auth, async (req, res) => {
   const match = {};
   const sort = {};
-  if (req.query.sortBy.length === 1) {
+  if (req.query.sortBy) {
     const parts = req.query.sortBy.split("_");
     sort[parts[0]] = parts[1] === "asc" ? 1 : -1;
   }
